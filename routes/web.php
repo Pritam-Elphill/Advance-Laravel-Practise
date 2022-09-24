@@ -1,6 +1,6 @@
 <?php
 
-use App\PaymentService\PayAPI;
+use App\PaymentService\PaypalAPI;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (PayAPI $pay_api) {
+Route::get('/', function (\App\PaymentService\PaymentInterface $payment) {
 
-    dump(app(App\PaymentService\PayAPI::class));
-    dump(app(App\PaymentService\PayAPI::class));
+    // dump(app(App\PaymentService\PayAPI::class));
+    dump($payment->checkout());
     // dd(app());
 });
